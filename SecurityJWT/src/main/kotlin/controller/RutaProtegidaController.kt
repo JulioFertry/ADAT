@@ -37,10 +37,13 @@ class RutaProtegidaController {
     @DeleteMapping("eliminar/{nombre}")
     fun saludarUsuarioAutenticado(authentication: Authentication, @PathVariable nombre: String): String {
 
-        if (authentication.name == nombre || authentication.authorities.any { rol ->
-            rol.authority == "ROLE_ADMIN"
-        }) {
-            return "has entrado, pichita"
+        if (authentication.name == nombre) {
+            //Ojetivo es saludar al usuario autenticado
+            return "Hola, $nombre vas a ser eliminado por ti mismo: ${authentication.name}"
+        }
+
+        if (authentication.authorities.any { rol -> rol.authority == "ROLE_ADMIN" }) {
+            return "Hola, $nombre vas a ser eliminado por ${authentication.name}"
         }
 
         return "no has entrado, picha"
