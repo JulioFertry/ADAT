@@ -5,7 +5,6 @@ import com.es.jwtSecurityKotlin.service.TokenService
 import com.es.jwtSecurityKotlin.service.UsuarioService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
-import org.springframework.http.HttpStatusCode
 import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
@@ -66,8 +65,7 @@ class UsuarioController {
 
         // SI PASAMOS LA AUTENTICACIÓN, SIGNIFICA QUE ESTAMOS BIEN AUTENTICADOS
         // PASAMOS A GENERAR EL TOKEN
-        var token = ""
-        token = tokenService.generarToken(authentication)
+        val token: String = tokenService.generarToken(authentication)
 
 
         return ResponseEntity(mapOf("token" to token), HttpStatus.CREATED)

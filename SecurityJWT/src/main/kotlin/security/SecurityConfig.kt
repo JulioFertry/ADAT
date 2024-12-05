@@ -32,6 +32,7 @@ class SecurityConfig {
     @Autowired
     private lateinit var rsaKeys: RSAKeysProperties
 
+
     @Bean
     fun securityFilterChain(http: HttpSecurity) : SecurityFilterChain {
 
@@ -53,10 +54,12 @@ class SecurityConfig {
 
     }
 
+
     @Bean
     fun passwordEncoder() : PasswordEncoder {
         return BCryptPasswordEncoder()
     }
+
 
     /**
      * Método que inicializa un objeto de tipo AuthenticationManager
@@ -76,6 +79,7 @@ class SecurityConfig {
         val jwks: JWKSource<SecurityContext> = ImmutableJWKSet(JWKSet(jwk))
         return NimbusJwtEncoder(jwks)
     }
+
 
     /*
     MÉTODO PARA DECODIFICAR UN JWT
