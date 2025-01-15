@@ -36,8 +36,6 @@ fun createNewDocument(): Document {
 fun insert() {
     val dotenv = dotenv()
     val connectString = dotenv["URL_MONGODB"]
-
-    // Configuramos la uri del cluster
     val mongoClient: MongoClient = MongoClients.create(connectString)
     val databaseName = "viajesbd"
 
@@ -52,7 +50,6 @@ fun insert() {
     } catch (e: Exception) {
         println("Error al conectar a MongoDB: ${e.message}")
     } finally {
-        // Cerrar la conexión
         mongoClient.close()
     }
 

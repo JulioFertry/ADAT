@@ -1,5 +1,5 @@
 package viajesmongo
 
 fun main() {
-    insert()
+    searchByOrigin()
 }
