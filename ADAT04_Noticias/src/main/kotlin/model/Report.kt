@@ -9,4 +9,14 @@ data class Report(
     val publicationDate: Date,
     val tag: List<String>,
     val user: String
-)
+) {
+
+    override fun toString(): String {
+        return "Titulo: $title\n" +
+                "$body\n" +
+                "Fecha: $publicationDate\n" +
+                "Tags: $tag\n" +
+                "Autor: $user"
+    }
+
+}
