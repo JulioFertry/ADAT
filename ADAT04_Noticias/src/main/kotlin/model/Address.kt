@@ -1,10 +1,10 @@
 package org.example.model
 
-import java.util.Date
 
 data class Address(
-    val user: String,
-    val report: String,
-    val commentary: String,
-    val date: Date
+    val street: String,
+    val number: String,
+    val door: String,
+    val cp: String,
+    val city: String
 )
